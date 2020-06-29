@@ -1,4 +1,3 @@
-require('./config/config');
 require('./models/db');
 require('./config/passportConfig');
 
@@ -21,20 +20,8 @@ app.use('/spareParts', spareParts);
 app.use('/auth', authentication);
 app.use(express.static(__dirname + '/dist'));
 
-// error handler
-app.use((err, req, res, next) => {
-    if (err.name === 'ValidationError') {
-        var valErrors = [];
-        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
-        res.status(422).send(valErrors)
-    }
-    else{
-        console.log(err);
-    }
-});
-
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/dist/index.html'))
   });
 // start server
-app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));
+app.listen(process.env.PORT || 5000, () => console.log(`Server started`));
