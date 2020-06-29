@@ -192,7 +192,7 @@ var ApiCallService = /** @class */ (function () {
             email: '',
             password: ''
         };
-        this.apiUrl = 'http://localhost:3000/spareParts';
+        this.apiUrl = '/spareParts';
         this.noAuthHeader = { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ NoAuth: 'True' }) };
     }
     // HttpMethods
@@ -1853,7 +1853,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiBaseUrl: 'http://localhost:3000/auth'
+    apiBaseUrl: '/auth'
 };
 /*
  * For easier debugging in development mode, you can import the following file
